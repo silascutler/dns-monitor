@@ -3,4 +3,45 @@ DNS Monitor
 
 This is a demo release.  Please email me with any questions or bugs
 
+DNSMonitor is a set of scripts that monitor dns names for IP address changes, when the current TTL of a domain expires.  The data is logged locally in a SQLite database which can easily be searched through. 
 
+
+=Installation=
+
+<code> 
+sudo perl -MCPAN -e 'install Getopt::Long,Net::DNS,DBI::SQLite,Thread::Pool'
+</code>
+
+=Usage=
+
+Use controller.pl to control any operational parts of the domain monitoring (ie. Add domain, remove domain, etc.).  Resolver.pl will automatically query the database for domains that need to be resolved.  Best usage is to run resolver.pl in a screen session. 
+
+
+<code>
+DNS Monitor - Controller.pl 1.0
+ - Silas Cutler 2012
+
+usage: ./controller.pl
+        -add    ( -a )  <domain>                - Add Domain for monitoring
+           -expire ( -e )                       - Monitor for changes for X hours
+        -remove ( -r ) <domain>                 - Delete Domain from monitoring
+        -list-active (-la)                      - List all Active Domains being monitored
+        -list-disabled  (-ld)                   - List all Disabled Domains
+        --------------
+        -find-dns ( -fd ) <domain>              - Find IP resolutions of a domain
+        -find-ip  ( -fi ) <domain>              - Find IP resolutions of a domain
+        --------------
+        -add-dns-server   (-adns  )             - add DNS server
+        -rem-dns-server   (-rdns  )             - remove DNS server
+        -list-dns-sesrver (-ldns  )             - List all DNS servers
+        --------------
+        -changes   (-c  )                       - List all changes from the past 24 hours
+	
+ </code>
+
+<code>
+DNS Monitor - Controller.pl 1.0
+  - Silas Cutler 2012
+usage: ./resolver.pl
+        -debug (-D)             - Debug
+ </code>
