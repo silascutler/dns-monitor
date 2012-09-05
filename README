@@ -7,20 +7,12 @@ DNSMonitor is a set of scripts that monitor dns names for IP address changes, wh
 
 
 =Installation=
-
-<code> 
 sudo perl -MCPAN -e 'install Getopt::Long,Net::DNS,DBI::SQLite,Thread::Pool'
-</code>
 
-=Usage=
 
 Use controller.pl to control any operational parts of the domain monitoring (ie. Add domain, remove domain, etc.).  Resolver.pl will automatically query the database for domains that need to be resolved.  Best usage is to run resolver.pl in a screen session. 
 
-
-<code>
-DNS Monitor - Controller.pl 1.0
- - Silas Cutler 2012
-
+=Usage=
 usage: ./controller.pl
         -add    ( -a )  <domain>                - Add Domain for monitoring
            -expire ( -e )                       - Monitor for changes for X hours
@@ -37,11 +29,5 @@ usage: ./controller.pl
         --------------
         -changes   (-c  )                       - List all changes from the past 24 hours
 	
- </code>
-
-<code>
-DNS Monitor - Controller.pl 1.0
-  - Silas Cutler 2012
 usage: ./resolver.pl
         -debug (-D)             - Debug
- </code>
